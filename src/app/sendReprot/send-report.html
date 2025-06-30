@@ -1,0 +1,16 @@
+<div class="modal-container" class="floating-modal"  *ngIf="selectedProblemId; else noSelectedProblem">
+  <div class="selected-modal-body">
+    <p>
+        Thank you, Your report has been received. The problem will be attended to as soon as possible.
+    </p>
+  </div>
+  </div>
+
+  <ng-template #noSelectedProblem>
+    <div class="modal-container" class="floating-modal">
+   <div class="no-selected-modal-body" >
+    <p>
+        Alert! Please select a problem before submitting.;
+    </p>
+   </div>
+    </div>

@@ -1,0 +1,74 @@
+<div class="modal-container" *ngIf="record && !isOutOfRange; else outOfRangeTemplate" class="floating-modal">
+<!--   <pre>{{ record | json }}</pre>
+ -->
+  <div class="modal-header">
+    <button class="back-btn" (click)="close()">&larr;</button>
+    <h2>FNB ATM</h2>
+    <button class="close-btn" (click)="close()">&times;</button>
+  </div>
+
+  <div class="modal-body" >
+    <p><span class="label">ATM Location:</span><br />
+          <span *ngIf="markerDistance !== undefined && markerDistance">Distance from User: {{ markerDistance }} km</span>
+          <p style=" color: #1A9EA3; padding: 0%; margin: 0%;" >Coordinates: </p>
+          <span >
+          lat: {{data.atmMarker.lat}},
+          lng: {{data.atmMarker.lng}}
+          </span>
+        
+
+    <p><span class="label">ATM Status:</span> <span class="online">{{record.atmStatus}}</span></p>
+
+    <p><span class="label">Available notes:</span><br />
+      <span *ngFor="let note of record.availableNotes" class="note">
+        {{ note }}<br />
+      </span>
+    </p>
+
+    <p><span class="label">Available Services:</span><br/>
+      <span *ngFor="let services of record.availableServices">{{services}}</span><br>
+      <span class="link"> {{
+    record.cardlessWithdrawal === '- Available'
+      ? '-Cardless Withdrawal'
+      : record.cardlessWithdrawal === '- No Cardless Withdrawal Services'
+        ? ''
+        : ''
+  }}
+  </span>
+    </p>
+
+    <p><span class="label">ATM Load(Busy Status):</span>
+      <span *ngFor="let count of record.transactionCount">{{count}}</span><br>
+      <span class="link"> {{
+    record.transactionCount <= 4
+      ? '- Not Busy'
+      : record.transactionCount  <= 7
+        ? '- Fairly Busy'
+        : '- Machine Busy'
+  }}
+  </span>
+ 
+    </p>
+
+    <div class="buttons">
+      <button class="report-btn"
+      (click)="openReportWindow()">
+        Report problem</button>
+      <button class="directions-btn"(click)="getDirections(atmMarker.lat, atmMarker.lng)">Get Directions</button>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #outOfRangeTemplate>
+  <div class="modal-container" class="floating-modal">
+    <div class="modal-header">
+      <button class="back-btn">&larr;</button>
+      <h2>FNB ATM</h2>
+      <button class="close-btn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="color: gray; margin-top: 50%; padding: 5%;">ATM information unavailable. ATM is outside your location range.</p>
+    </div>
+  </div>
+</ng-template>

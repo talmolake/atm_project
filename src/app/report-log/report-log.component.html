@@ -1,0 +1,32 @@
+<div class="modal-container" class="floating-modal">
+  <div class="modal-header">
+    <button class="back-btn" (click)="closeReportLog()">&larr;</button>
+    <h2>FNB ATM</h2>
+    <button class="close-btn" (click)="close()">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <button class = "instruction"> Select Problem</button>
+
+    <div class ="problems">
+        <div class="reports">
+        <button id="no_cash" (click)="selectProblem('no_cash')"
+        [class.selected]="selectedProblemId === 'no_cash'"><img src= "assets\no_c.png"/><p>No Cash</p> </button><br>
+        </div>
+        <div class="reports">
+        <button id="atm_offline" (click)="selectProblem('atm_offline')"
+        [class.selected]="selectedProblemId === 'atm_offline'"><img src="assets\no_network.png"/> <p>ATM Offline</p></button><br>
+         
+        </div>
+        <div class="reports">
+        <button id="no_deposit" (click)="selectProblem('no_deposit')"
+        [class.selected]="selectedProblemId === 'no_deposit'"><img src="assets/noDorW.png"/> <p>No Deposit Services</p></button><br>
+        </div>
+        <div class="reports">
+        <button id="no_withdrawal" (click)="selectProblem('no_withdrawal')"
+        [class.selected]="selectedProblemId === 'no_withdrawal'"><img src="assets/noDorW.png"/><p>No Withdrawal Services</p></button><br>
+         
+        </div>
+    </div>
+        <button class="send-report-btn" (click)="submitReport()">Submit Report</button>
+  </div>

@@ -21,18 +21,15 @@
             "outputPath": "dist/google_maps_app",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "assets":[
+              "src/assets"
+            ],
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
             "styles": [
-              "src/styles.css"
+              "src/app/styles.css"
             ],
             "scripts": []
           },
@@ -93,6 +90,39 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "angular-lib-1": {
+      "projectType": "library",
+      "root": "projects/angular-lib-1",
+      "sourceRoot": "projects/angular-lib-1/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/angular-lib-1/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/angular-lib-1/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/angular-lib-1/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/angular-lib-1/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }

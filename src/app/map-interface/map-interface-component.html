@@ -1,0 +1,13 @@
+<google-map 
+  [center]="center" [zoom]="14" 
+  height="97vh"   width="100%"
+   #mapRef>
+    
+    <map-marker
+    *ngFor="let position of markerLatLong"
+    [position]="{lat: position.lat, lng: position.lng}"
+    [icon]="position.isUser ? userIconPath : iconPath"
+    (mapClick)="openInfoWindow(position)"
+    [clickable]="!position.isUser">
+  </map-marker>
+</google-map>  

@@ -1,0 +1,118 @@
+.floating-modal {
+  position: fixed;
+  align-self: center;
+  top: 10%;
+  left: 25%;
+  width: 50%;
+  height: 80%;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border-radius: 30px;
+  z-index: 10000; /* ensure it's on top */
+  overflow: auto;
+}
+
+.modal-container {
+  padding: 0%;
+  width: '100%';
+  height: '100%';
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  font-family: 'Segoe UI', sans-serif;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+.modal-body{
+  padding-top: 5%;
+  padding-left: 5%;
+}
+.back-btn, .close-btn{
+  background-color: white;
+  border: 1%;
+  border-color: white;
+  cursor: pointer;
+}
+.instruction{
+  background-color: white;
+  color: black;
+  width: 150px;
+  padding: 10px 14px;
+  margin-bottom: 20px;
+  border: 0.2%;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.problems {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.reports {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.reports button {
+  width: 64px;
+  height: 64px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.reports button:hover,
+.reports button.selected {
+  border-color: #000;
+  background-color: #e6f0ff;
+}
+
+.reports img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.reports p {
+  margin: 0;
+  font-size: 10px;
+  font-weight: 500;
+  color: #444;
+  text-align: center;
+}
+
+
+.send-report-btn{
+  position: relative;
+  background-color: #D61E29;
+  color: white;
+  width: 70%;
+  align-self: center;
+  padding: 10px 14px;
+  margin-left: 13%;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}

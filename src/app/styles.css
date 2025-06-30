@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+/*modal styling*/
+/* Make sure to override Angular Material defaults */
+.custom-dialog-panel {
+  background: transparent ;
+  box-shadow: none ;
+  padding: 0 ;
+  overflow: visible ;
+  border-radius: 0 ;
+}
+
+/* Optional: make backdrop semi-transparent or remove it */
+.custom-dialog-backdrop {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
